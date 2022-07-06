@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public Camera GameCamera;
     public GameObject Marker;
 
+    private TextMeshProUGUI infoText;
     private Animal m_Selected = null;
 
     private void Start()
     {
         Marker.SetActive(false);
+        infoText = GameObject.Find("Info Text").GetComponent<TextMeshProUGUI>();
     }
 
     public void HandleSelection()
@@ -23,6 +26,11 @@ public class GameManager : MonoBehaviour
             //the collider could be children of the animal, so we make sure to check in the parent
             var animal = hit.collider.GetComponentInParent<Animal>();
             m_Selected = animal;
+            
+            if (m_Selected != null)
+            {
+                infoText.text = animal.Info;
+            }
         }
     }
 

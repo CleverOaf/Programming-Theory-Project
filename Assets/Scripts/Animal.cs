@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Animal : MonoBehaviour
 {
+    public string Info { get; protected set; }
+
     public string Name { get; protected set; }
 
     private float age;

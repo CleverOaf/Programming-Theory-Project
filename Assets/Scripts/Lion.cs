@@ -16,7 +16,7 @@ public class Lion : Animal
         Name = "Snoop";
         Age = 6.6f;
 
-        Debug.Log("The Lion's name is " + Name + " and it is " + Age + " years old.");
+        Info = "The lion's name is " + Name + " and it is " + Age + " years old.";
     }
 
     public override void Vocalize()
