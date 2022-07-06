@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        ControllPlayer();
+        ControlPlayer();
     }
 
-    void ControllPlayer()
+    void ControlPlayer()
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
@@ -34,12 +34,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
             anim.SetInteger("Walk", 1);
+            transform.Translate(movementSpeed * Time.deltaTime * movement, Space.World);
         }
         else {
             anim.SetInteger("Walk", 0);
         }
-
-        transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
 
         if (Input.GetButtonDown("Jump") && Time.time > canJump)
         {
