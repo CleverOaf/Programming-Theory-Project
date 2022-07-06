@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameManager : MonoBehaviour
 {
@@ -79,5 +82,14 @@ public class GameManager : MonoBehaviour
             Marker.transform.localPosition = Vector3.zero;
             Marker.transform.localRotation = Quaternion.identity;
         }
+    }
+
+    public void Exit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
 }
