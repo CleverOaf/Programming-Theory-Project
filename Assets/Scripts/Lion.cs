@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Lion : Animal
 {
     private AudioSource lionAudioSource;
@@ -19,6 +20,7 @@ public class Lion : Animal
         Info = "The lion's name is " + Name + " and it is " + Age + " years old.";
     }
 
+    // POLYMORPHISM
     public override void Vocalize()
     {
         if (canRoar <= Time.time)

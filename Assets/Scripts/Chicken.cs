@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Chicken : Animal
 {
     private AudioSource chickenAudioSource;
@@ -19,6 +20,7 @@ public class Chicken : Animal
         Info = "The chicken's name is " + Name + " and it is " + Age + " years old.";
     }
 
+    // POLYMORPHISM
     public override void Vocalize()
     {
         if (canCluck <= Time.time)

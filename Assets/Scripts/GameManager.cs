@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+            // ABSTRACTION
             m_Selected.GoTo(hit.point);
         }
     }
@@ -51,16 +52,19 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // ABSTRACTION
             HandleSelection();
         }
         else if (m_Selected != null && Input.GetMouseButtonDown(1))
         {
+            // ABSTRACTION
             //right click give order to the unit
             HandleAction();
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
+            // ABSTRACTION
             m_Selected.Vocalize();
         }
 

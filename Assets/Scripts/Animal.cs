@@ -5,10 +5,13 @@ using UnityEngine.AI;
 
 public class Animal : MonoBehaviour
 {
+    // ENCAPSULATION
     public string Info { get; protected set; }
 
+    // ENCAPSULATION
     public string Name { get; protected set; }
 
+    // ENCAPSULATION
     private float age;
     public float Age
     {
@@ -41,6 +44,25 @@ public class Animal : MonoBehaviour
 
     protected void Update()
     {
+        // ABSTRACTION
+        RunAnimations();
+    }
+
+    // POLYMORPHISM
+    public virtual void Vocalize()
+    {
+        Debug.Log("Animal base class Vocalize() method has been called. You should never see this.");
+    }
+
+    public void GoTo(Vector3 position)
+    {
+        //we don't have a target anymore if we order to go to a random point.
+        m_Agent.SetDestination(position);
+        m_Agent.isStopped = false;
+    }
+
+    private void RunAnimations()
+    {
         if (m_Agent.transform.position == m_Agent.destination)
         {
             atDestination = true;
@@ -58,17 +80,5 @@ public class Animal : MonoBehaviour
         {
             anim.SetInteger("Walk", 0);
         }
-    }
-
-    public virtual void Vocalize()
-    {
-        Debug.Log("Animal base class Vocalize() method has been called. You should never see this.");
-    }
-
-    public virtual void GoTo(Vector3 position)
-    {
-        //we don't have a target anymore if we order to go to a random point.
-        m_Agent.SetDestination(position);
-        m_Agent.isStopped = false;
     }
 }
