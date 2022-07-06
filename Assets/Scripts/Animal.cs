@@ -15,7 +15,7 @@ public class Animal : MonoBehaviour
         {
             if (value < 0)
             {
-                Debug.LogError("Age cannot be set to negative number.");
+                Debug.Log("Age cannot be set to negative number.");
                 return;
             }
             age = value;

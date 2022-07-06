@@ -8,14 +8,15 @@ public class Lion : Animal
     private float timeToWait;
     private float canRoar;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         lionAudioSource = GetComponent<AudioSource>();
         timeToWait = lionAudioSource.clip.length;
         canRoar = Time.time;
         Name = "Snoop";
         Age = 6.6f;
+
+        Debug.Log("The Lion's name is " + Name + " and it is " + Age + " years old.");
     }
 
     public override void Vocalize()

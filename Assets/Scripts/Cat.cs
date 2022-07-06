@@ -8,14 +8,15 @@ public class Cat : Animal
     private float timeToWait;
     private float canMeow;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         catAudioSource = GetComponent<AudioSource>();
         timeToWait = catAudioSource.clip.length;
         canMeow = Time.time;
         Name = "Pan";
-        Age = 2.2f;
+        Age = -2.2f;
+
+        Debug.Log("The Cat's name is " + Name + " and it is " + Age + " years old.");
     }
 
     public override void Vocalize()

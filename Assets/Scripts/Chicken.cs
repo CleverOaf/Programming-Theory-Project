@@ -8,14 +8,15 @@ public class Chicken : Animal
     private float timeToWait;
     private float canCluck;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         chickenAudioSource = GetComponent<AudioSource>();
         timeToWait = chickenAudioSource.clip.length;
         canCluck = Time.time;
         Name = "McFly";
         Age = 4.9f;
+
+        Debug.Log("The Chicken's name is " + Name + " and it is " + Age + " years old.");
     }
 
     public override void Vocalize()
