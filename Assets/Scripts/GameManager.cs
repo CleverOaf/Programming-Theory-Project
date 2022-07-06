@@ -67,8 +67,9 @@ public class GameManager : MonoBehaviour
         else if (m_Selected != null && Marker.transform.parent != m_Selected.transform)
         {
             Marker.SetActive(true);
-            Marker.transform.SetParent(m_Selected.transform, false);
+            Marker.transform.SetParent(m_Selected.transform, true);
             Marker.transform.localPosition = Vector3.zero;
+            Marker.transform.localRotation = Quaternion.identity;
         }
     }
 }
