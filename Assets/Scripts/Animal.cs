@@ -34,7 +34,7 @@ public class Animal : MonoBehaviour
         m_Agent.angularSpeed = 999;
     }
 
-    protected virtual void Vocalize()
+    public virtual void Vocalize()
     {
         Debug.Log("Animal base class Vocalize() method has been called. You should never see this.");
     }

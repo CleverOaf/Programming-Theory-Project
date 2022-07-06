@@ -48,6 +48,11 @@ public class GameManager : MonoBehaviour
             HandleAction();
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            m_Selected.Vocalize();
+        }
+
         MarkerHandling();
     }
 

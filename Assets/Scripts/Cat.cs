@@ -5,25 +5,20 @@ using UnityEngine;
 public class Cat : Animal
 {
     private AudioSource catAudioSource;
-    private float timeToWait = 5;
+    private float timeToWait;
     private float canMeow;
 
     // Start is called before the first frame update
     void Start()
     {
         catAudioSource = GetComponent<AudioSource>();
+        timeToWait = catAudioSource.clip.length;
         canMeow = Time.time;
         Name = "Pan";
         Age = 2.2f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    protected override void Vocalize()
+    public override void Vocalize()
     {
         if (canMeow <= Time.time)
         {
